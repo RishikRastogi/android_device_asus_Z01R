@@ -112,6 +112,12 @@ on boot
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
 
+
+# Restrict permissions to socket file
+# to hide Magisk & co.
+    chmod 440 /proc/net/unix
+
+
 on property:vendor.usb.controller=*
     setprop sys.usb.controller ${vendor.usb.controller}
 
